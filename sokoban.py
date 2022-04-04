@@ -20,7 +20,7 @@ class Sokoban:
     self.mapa=[
         [3,3,3,3,3,3,3,3,3,3,3,3],
         [3,1,1,1,1,1,1,1,1,1,1,3],
-        [3,1,1,1,0,4,1,1,1,1,1,3],
+        [3,1,1,1,5,4,1,1,1,1,1,3],
         [3,1,1,1,1,1,1,1,1,1,1,3],
         [3,1,1,1,1,1,1,1,1,1,1,3],
         [3,3,3,3,3,3,3,3,3,3,3,3]
@@ -32,11 +32,13 @@ class Sokoban:
             print(fil)
 
   def posicionPersonaje(self):
+  
     for fil in range(len(self.mapa)): 
       for col in range(len(self.mapa[fil])): 
-          if self.mapa[fil][col] == 0: 
+          if self.mapa[fil][col] == 0 or self.mapa[fil][col] == 5: #puede iniciar con 0 o con 5
             self.personaje_fil = fil 
             self.personaje_col = col 
+         
 
   def moverDerecha(self):
     print("te moviste a las derecha") 
@@ -114,6 +116,14 @@ class Sokoban:
             self.mapa[self.personaje_fil][self.personaje_col] = self.meta  
             self.mapa[self.personaje_fil][self.personaje_col + 1] = self.personaje
             self.personaje_col = self.personaje_col + 1  
+    #personaje_meta,meta     
+    elif (
+            self.mapa[self.personaje_fil][self.personaje_col] == self.personaje_meta
+            and self.mapa[self.personaje_fil][self.personaje_col + 1] == self.meta
+        ):  # If the character is on the floor and the next position is a floor
+            self.mapa[self.personaje_fil][self.personaje_col] = self.meta  
+            self.mapa[self.personaje_fil][self.personaje_col + 1] = self.personaje_meta
+            self.personaje_col = self.personaje_col + 1          
 
 
   def checharNivelCompleto(self):
@@ -135,7 +145,7 @@ class Sokoban:
                 input("Press Enter to continue...")  # Wait for the user to press enter
                 self.leerMapa()  # Call the map
                 self.posicionPersonaje()  # Update the character position for new map
-            self.imprimirMapa()  # Call the printMap method
+            self.imprimirMapa()  # Call the printMap method 
             print(
                 "Character position: [{},{}]".format(
                     self.personaje_fil, self.personaje_col
