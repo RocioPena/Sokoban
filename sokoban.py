@@ -1,12 +1,12 @@
 class Sokoban:
 
-#personaje=0
-  #espacio=1
-  #caja=2
-  #pared=3
-  #meta=4
-  #personaje_meta=5
-  #caja_meta=6
+  personaje = 0
+  espacio = 1
+  caja = 2
+  pared = 3
+  meta = 4
+  personaje_meta = 5
+  caja_meta = 6
   
   mapa = []
   personaje_fil = 0
@@ -54,13 +54,13 @@ class Sokoban:
         # TODO: Check if the level is complete
         # If return True, the level is complete
         # If return False, the level is not complete
-        complete = False
-        return complete
+        completo = False
+        return completo
         
   def jugar(self):
         self.leerMapa()  # Call the map
         self.posicionPersonaje()  # Update the character position for new map
-        instructions = "d-Right, a-Left, w-Up, s-Down"  # Instructions
+        instructions = "d-Derecha, a-Izquierda, w-Arriba, s-Abajo"  # Instructions
         print(instructions)  # Print the instructions
         while True:  # Infinite loop
             complete = self.checharNivelCompleto()  # Check if the level is complete
@@ -76,14 +76,14 @@ class Sokoban:
                 )
             )  # Print the character position
             move = input("Select move: ")  # Ask for the move
-         #   if move == "a":  # If the move is left
-              #  self.moveLeft()  # Call moveLeft rules
-            if move == "d":  # If the move is right
+            if move == "a":  # If the move is left
+                self.moverIzquierda()  # Call moveLeft rules
+            elif move == "d":  # If the move is right
                 self.moverDerecha()  # Call moveRight rules
-          #  elif move == "w":  # If the move is up
-            #    self.moveUp()  # Call moveUp rules
-          #  elif move == "s":  # If the move is down
-             #   self.moveDown()  # Call moveDown rules
+            elif move == "w":  # If the move is up
+                self.moverArriba()  # Call moveUp rules
+            elif move == "s":  # If the move is down
+                self.moverAbajo()  # Call moveDown rules
             elif move == "q":  # If the move is quit
                 break  # Game quit
 
