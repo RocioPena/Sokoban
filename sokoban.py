@@ -20,7 +20,7 @@ class Sokoban:
     self.mapa=[
         [3,3,3,3,3,3,3,3,3,3,3,3],
         [3,1,1,1,1,1,1,1,1,1,1,3],
-        [3,1,1,1,1,1,0,1,1,1,1,3],
+        [3,1,1,1,1,1,0,4,1,1,1,3],
         [3,1,1,1,1,1,1,1,1,1,1,3],
         [3,1,1,1,1,1,1,1,1,1,1,3],
         [3,3,3,3,3,3,3,3,3,3,3,3]
@@ -46,6 +46,14 @@ class Sokoban:
         ):  # If the character is on the floor and the next position is a floor
             self.mapa[self.personaje_fil][self.personaje_col] = 1  # put floor character last position
             self.mapa[self.personaje_fil][self.personaje_col + 1] = 0  # move the character to next position
+            self.personaje_col = self.personaje_col + 1
+
+    elif (
+            self.mapa[self.personaje_fil][self.personaje_col] == 0
+            and self.mapa[self.personaje_fil][self.personaje_col + 1] == 4
+        ):  # If the character is on the floor and the next position is a floor
+            self.mapa[self.personaje_fil][self.personaje_col] = 1  # put floor character last position
+            self.mapa[self.personaje_fil][self.personaje_col + 1] = 5  # move the character to next position
             self.personaje_col = self.personaje_col + 1
 
 
