@@ -280,7 +280,7 @@ class Sokoban:
             self.mapa[self.personaje_fil][self.personaje_col - 1] = self.personaje_meta
             self.mapa[self.personaje_fil][self.personaje_col - 2] = self.caja
             self.personaje_col = self.personaje_col - 1
-    #personaje_meta,caja_meta,meta   
+    #personaje_meta,caja_meta,meta(izquierda)   
     elif (
             self.mapa[self.personaje_fil][self.personaje_col] == self.personaje_meta
             and self.mapa[self.personaje_fil][self.personaje_col + 1] == self.caja_meta
