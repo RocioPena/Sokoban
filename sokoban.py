@@ -21,7 +21,7 @@ class Sokoban:
         [3,3,3,3,3,3,3,3,3,3,3,3],
         [3,1,1,1,1,1,1,1,1,1,1,3],
         [3,1,1,1,1,1,1,1,1,1,1,3],
-        [3,1,1,1,1,1,1,1,1,1,1,3],
+        [3,1,1,1,4,1,1,1,1,1,1,3],
         [3,1,1,1,0,1,1,1,1,1,1,3],
         [3,3,3,3,3,3,3,3,3,3,3,3]
     ]
@@ -301,24 +301,24 @@ class Sokoban:
             self.mapa[self.personaje_fil][self.personaje_col] = self.espacio  
             self.mapa[self.personaje_fil - 1][self.personaje_col ] = self.personaje  
             self.personaje_fil = self.personaje_fil - 1
-    #personaje,meta
+    #personaje,meta(arriba)
     elif (
             self.mapa[self.personaje_fil][self.personaje_col] == self.personaje
-            and self.mapa[self.personaje_fil][self.personaje_col + 1] == self.meta
+            and self.mapa[self.personaje_fil - 1][self.personaje_col] == self.meta
         ):  # If the character is on the floor and the next position is a floor
             self.mapa[self.personaje_fil][self.personaje_col] = self.espacio  
-            self.mapa[self.personaje_fil][self.personaje_col + 1] = self.personaje_meta  
-            self.personaje_col = self.personaje_col + 1
-     #personaje,caja,espacio     
+            self.mapa[self.personaje_fil - 1][self.personaje_col] = self.personaje_meta  
+            self.personaje_fil = self.personaje_fil - 1
+     #personaje,caja,espacio(arriba)     
     elif (
             self.mapa[self.personaje_fil][self.personaje_col] == self.personaje
-            and self.mapa[self.personaje_fil][self.personaje_col + 1] == self.caja
-            and self.mapa[self.personaje_fil][self.personaje_col + 2] == self.espacio
+            and self.mapa[self.personaje_fil - 1][self.personaje_col] == self.caja
+            and self.mapa[self.personaje_fil - 2][self.personaje_col] == self.espacio
         ):  # If the character is on the floor and the next position is a floor
             self.mapa[self.personaje_fil][self.personaje_col] = self.espacio  
-            self.mapa[self.personaje_fil][self.personaje_col + 1] = self.personaje 
-            self.mapa[self.personaje_fil][self.personaje_col + 2] = self.caja
-            self.personaje_col = self.personaje_col + 1
+            self.mapa[self.personaje_fil - 1][self.personaje_col] = self.personaje 
+            self.mapa[self.personaje_fil - 2][self.personaje_col] = self.caja
+            self.personaje_fil = self.personaje_fil - 1
      #personaje,caja,meta     
     elif (
             self.mapa[self.personaje_fil][self.personaje_col] == self.personaje
