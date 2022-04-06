@@ -184,16 +184,16 @@ class Sokoban:
             self.mapa[self.personaje_fil][self.personaje_col] = self.espacio  
             self.mapa[self.personaje_fil][self.personaje_col - 1] = self.personaje_meta  
             self.personaje_col = self.personaje_col - 1
-     #personaje,caja,espacio     
+     #personaje,caja,espacio(izquierda)     
     elif (
             self.mapa[self.personaje_fil][self.personaje_col] == self.personaje
-            and self.mapa[self.personaje_fil][self.personaje_col + 1] == self.caja
-            and self.mapa[self.personaje_fil][self.personaje_col + 2] == self.espacio
+            and self.mapa[self.personaje_fil][self.personaje_col - 1] == self.caja
+            and self.mapa[self.personaje_fil][self.personaje_col - 2] == self.espacio
         ):  # If the character is on the floor and the next position is a floor
             self.mapa[self.personaje_fil][self.personaje_col] = self.espacio  
-            self.mapa[self.personaje_fil][self.personaje_col + 1] = self.personaje 
-            self.mapa[self.personaje_fil][self.personaje_col + 2] = self.caja
-            self.personaje_col = self.personaje_col + 1
+            self.mapa[self.personaje_fil][self.personaje_col - 1] = self.personaje 
+            self.mapa[self.personaje_fil][self.personaje_col - 2] = self.caja
+            self.personaje_col = self.personaje_col - 1
      #personaje,caja,meta     
     elif (
             self.mapa[self.personaje_fil][self.personaje_col] == self.personaje
