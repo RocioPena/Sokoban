@@ -557,22 +557,22 @@ class Sokoban:
   def jugar(self):
         self.leerMapa()  # Call the map
         self.posicionPersonaje()  # Update the character position for new map
-        instructions = "d-Derecha, a-Izquierda, w-Arriba, s-Abajo"  # Instructions
-        print(instructions)  # Print the instructions
+        instrucciones = "d-Derecha, a-Izquierda, w-Arriba, s-Abajo"  # Instructions
+        print(instrucciones)  # Print the instructions
         while True:  # Infinite loop
-            complete = self.checharNivelCompleto()  # Check if the level is complete
-            if complete == True:  # If the level is complete
+            completo = self.checharNivelCompleto()  # Check if the level is complete
+            if completo == True:  # If the level is complete
                 print("Level Complete")  # Print the level complete
                 input("Press Enter to continue...")  # Wait for the user to press enter
                 self.leerMapa()  # Call the map
                 self.posicionPersonaje()  # Update the character position for new map
             self.imprimirMapa()  # Call the printMap method 
             print(
-                "Character position: [{},{}]".format(
+                "Posicion del personaje: [{},{}]".format(
                     self.personaje_fil, self.personaje_col
                 )
             )  # Print the character position
-            move = input("Select move: ")  # Ask for the move
+            move = input("Mover hacia: ")  # Ask for the move
             if move == "a":  # If the move is left
                 self.moverIzquierda()  # Call moveLeft rules
             elif move == "d":  # If the move is right
