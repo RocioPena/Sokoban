@@ -503,46 +503,46 @@ class Sokoban:
             self.mapa[self.personaje_fil][self.personaje_col] = self.meta  
             self.mapa[self.personaje_fil + 1][self.personaje_col] = self.personaje_meta
             self.personaje_fil = self.personaje_fil + 1
-    #personaje_meta,caja,espacio(arriba)    
+    #personaje_meta,caja,espacio(abajo)    
     elif (
             self.mapa[self.personaje_fil][self.personaje_col] == self.personaje_meta
-            and self.mapa[self.personaje_fil - 1][self.personaje_col] == self.caja
-            and self.mapa[self.personaje_fil - 2][self.personaje_col] == self.espacio
+            and self.mapa[self.personaje_fil + 1][self.personaje_col] == self.caja
+            and self.mapa[self.personaje_fil + 2][self.personaje_col] == self.espacio
         ):  # If the character is on the floor and the next position is a floor
             self.mapa[self.personaje_fil][self.personaje_col] = self.meta  
-            self.mapa[self.personaje_fil - 1][self.personaje_col] = self.personaje
-            self.mapa[self.personaje_fil - 2][self.personaje_col] = self.caja
-            self.personaje_fil = self.personaje_fil - 1 
-    #personaje_meta,caja,meta(arriba)  
+            self.mapa[self.personaje_fil + 1][self.personaje_col] = self.personaje
+            self.mapa[self.personaje_fil + 2][self.personaje_col] = self.caja
+            self.personaje_fil = self.personaje_fil + 1 
+    #personaje_meta,caja,meta(abajo)  
     elif (
             self.mapa[self.personaje_fil][self.personaje_col] == self.personaje_meta
-            and self.mapa[self.personaje_fil - 1][self.personaje_col] == self.caja
-            and self.mapa[self.personaje_fil - 2][self.personaje_col] == self.meta
+            and self.mapa[self.personaje_fil + 1][self.personaje_col] == self.caja
+            and self.mapa[self.personaje_fil + 2][self.personaje_col] == self.meta
         ):  # If the character is on the floor and the next position is a floor
             self.mapa[self.personaje_fil][self.personaje_col] = self.meta  
-            self.mapa[self.personaje_fil - 1][self.personaje_col] = self.personaje
-            self.mapa[self.personaje_fil - 2][self.personaje_col] = self.caja_meta
-            self.personaje_fil = self.personaje_fil - 1    
-    #personaje_meta,caja_meta,espacio(arriba)   
+            self.mapa[self.personaje_fil + 1][self.personaje_col] = self.personaje
+            self.mapa[self.personaje_fil + 2][self.personaje_col] = self.caja_meta
+            self.personaje_fil = self.personaje_fil + 1    
+    #personaje_meta,caja_meta,espacio(abajo)   
     elif (
             self.mapa[self.personaje_fil][self.personaje_col] == self.personaje_meta
-            and self.mapa[self.personaje_fil - 1][self.personaje_col] == self.caja_meta
-            and self.mapa[self.personaje_fil - 2][self.personaje_col] == self.espacio
+            and self.mapa[self.personaje_fil + 1][self.personaje_col] == self.caja_meta
+            and self.mapa[self.personaje_fil + 2][self.personaje_col] == self.espacio
         ):  # If the character is on the floor and the next position is a floor
             self.mapa[self.personaje_fil][self.personaje_col] = self.meta  
-            self.mapa[self.personaje_fil - 1][self.personaje_col] = self.personaje_meta
-            self.mapa[self.personaje_fil - 2][self.personaje_col] = self.caja
-            self.personaje_fil = self.personaje_fil - 1
-    #personaje_meta,caja_meta,meta(arriba)   
+            self.mapa[self.personaje_fil + 1][self.personaje_col] = self.personaje_meta
+            self.mapa[self.personaje_fil + 2][self.personaje_col] = self.caja
+            self.personaje_fil = self.personaje_fil + 1
+    #personaje_meta,caja_meta,meta(abajo)   
     elif (
             self.mapa[self.personaje_fil][self.personaje_col] == self.personaje_meta
-            and self.mapa[self.personaje_fil - 1][self.personaje_col] == self.caja_meta
-            and self.mapa[self.personaje_fil - 2][self.personaje_col] == self.meta
+            and self.mapa[self.personaje_fil + 1][self.personaje_col] == self.caja_meta
+            and self.mapa[self.personaje_fil + 2][self.personaje_col] == self.meta
         ):  # If the character is on the floor and the next position is a floor
             self.mapa[self.personaje_fil][self.personaje_col] = self.meta  
-            self.mapa[self.personaje_fil - 1][self.personaje_col] = self.personaje_meta
-            self.mapa[self.personaje_fil - 2][self.personaje_col] = self.caja_meta
-            self.personaje_fil = self.personaje_fil - 1  
+            self.mapa[self.personaje_fil + 1][self.personaje_col] = self.personaje_meta
+            self.mapa[self.personaje_fil + 2][self.personaje_col] = self.caja_meta
+            self.personaje_fil = self.personaje_fil + 1  
           
 
   
