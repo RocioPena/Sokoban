@@ -20,10 +20,10 @@ class Sokoban:
     self.mapa=[
         [3,3,3,3,3,3,3,3,3,3,3,3],
         [3,1,1,1,1,1,1,1,1,1,1,3],
-        [3,1,1,1,1,1,0,1,1,1,1,3],
-        [3,1,1,4,1,4,1,1,1,1,1,3],
+        [3,1,1,1,1,1,1,1,1,1,1,3],
+        [3,1,1,4,1,4,0,1,1,1,1,3],
         [3,1,1,1,1,4,2,1,1,1,1,3],
-        [3,1,1,1,1,6,1,1,1,1,1,3],
+        [3,1,1,1,1,6,4,1,1,1,1,3],
         [3,1,1,1,1,1,1,1,1,1,1,3],
         [3,1,1,1,1,1,1,1,1,1,1,3],
         [3,3,3,3,3,3,3,3,3,3,3,3]
@@ -447,16 +447,16 @@ class Sokoban:
             self.mapa[self.personaje_fil + 1][self.personaje_col] = self.personaje 
             self.mapa[self.personaje_fil + 2][self.personaje_col] = self.caja
             self.personaje_fil = self.personaje_fil + 1
-     #personaje,caja,meta(arriba)     
+     #personaje,caja,meta(abajo)     
     elif (
             self.mapa[self.personaje_fil][self.personaje_col] == self.personaje
-            and self.mapa[self.personaje_fil - 1][self.personaje_col] == self.caja
-            and self.mapa[self.personaje_fil - 2][self.personaje_col] == self.meta
+            and self.mapa[self.personaje_fil + 1][self.personaje_col] == self.caja
+            and self.mapa[self.personaje_fil + 2][self.personaje_col] == self.meta
         ):  # If the character is on the floor and the next position is a floor
             self.mapa[self.personaje_fil][self.personaje_col] = self.espacio  
-            self.mapa[self.personaje_fil - 1][self.personaje_col] = self.personaje 
-            self.mapa[self.personaje_fil - 2][self.personaje_col] = self.caja_meta
-            self.personaje_fil = self.personaje_fil - 1    
+            self.mapa[self.personaje_fil + 1][self.personaje_col] = self.personaje 
+            self.mapa[self.personaje_fil + 2][self.personaje_col] = self.caja_meta
+            self.personaje_fil = self.personaje_fil + 1    
      #personaje,caja_meta,espacio(arriba)     
     elif (
             self.mapa[self.personaje_fil][self.personaje_col] == self.personaje
